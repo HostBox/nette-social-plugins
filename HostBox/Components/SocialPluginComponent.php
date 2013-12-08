@@ -38,7 +38,6 @@ class SocialPluginComponent extends Nette\UI\Control {
         $this->updateSettings($settings);
     }
 
-
     protected function renderComponent() {
         list(, $caller) = debug_backtrace(2);
         $functionName = $caller['function'];
@@ -54,7 +53,6 @@ class SocialPluginComponent extends Nette\UI\Control {
             $functionName = 'default';
         }
 
-
         /** @var ClassType $calledClass */
         $calledClass = get_called_class();
         $reflection = $calledClass::getReflection();
@@ -65,28 +63,6 @@ class SocialPluginComponent extends Nette\UI\Control {
         $this->template->render();
     }
 
-    /**
-     * @param array $settings
-     */
-    private function updateSettings(array $settings) {
-        if (!is_array($settings) || empty($settings))
-            return;
-
-        $properties = $this->getReflection()->getProperties();
-        if (count($properties) > 0) {
-            foreach ($properties as $property) {
-                dump($property->name);
-                if ($property->isPublic()) {
-                    $propertyName = $property->name;
-                    if (array_key_exists($propertyName, $settings)) {
-                        $this->$propertyName = $settings[$property->name];
-                    }
-                }
-            }
-        }
-    }
-
-
     protected function putSettingsIntoTemplate() {
         $reflection = $this->getReflection();
         $properties = $reflection->getProperties();
@@ -95,7 +71,7 @@ class SocialPluginComponent extends Nette\UI\Control {
             foreach ($properties as $property) {
                 if ($property->isPublic()) {
                     $propertyName = $property->name;
-                    if (($value = $this->$propertyName) !== NULL && $property->getAnnotation('ignore') !== NULL) {
+                    if (($value = $this->$propertyName) !== NULL && $property->getAnnotation('ignore') === NULL) {
                         if (($name = $property->getAnnotation('name')) === NULL) {
                             $name = preg_replace('#(.)(?=[A-Z])#', '$1-', $property->name);
                             $name = strtolower($name);
@@ -120,6 +96,26 @@ class SocialPluginComponent extends Nette\UI\Control {
             throw new \Exception();
         }
         $this->template->tagClass = $tagClass;
+    }
+
+    /**
+     * @param array $settings
+     */
+    private function updateSettings(array $settings) {
+        if (!is_array($settings) || empty($settings))
+            return;
+
+        $properties = $this->getReflection()->getProperties();
+        if (count($properties) > 0) {
+            foreach ($properties as $property) {
+                if ($property->isPublic()) {
+                    $propertyName = $property->name;
+                    if (array_key_exists($propertyName, $settings)) {
+                        $this->$propertyName = $settings[$property->name];
+                    }
+                }
+            }
+        }
     }
 
 } 

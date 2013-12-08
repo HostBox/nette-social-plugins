@@ -26,6 +26,14 @@ abstract class TwitterPlugin extends SocialPluginComponent {
         $this->config = $config;
     }
 
+    /**
+     * @param array $settings
+     */
+    public function render($settings = array()) {
+        $this->template->config = $this->config;
+        parent::render($settings);
+    }
+
     protected function putDistinctionIntoTemplate() {
         parent::putDistinctionIntoTemplate();
         $reflection = $this->getReflection();
@@ -48,11 +56,5 @@ abstract class TwitterPlugin extends SocialPluginComponent {
 
         $this->template->href = $href;
     }
-
-    public function render($settings = array()) {
-        $this->template->config = $this->config;
-        parent::render($settings);
-    }
-
 
 } 
