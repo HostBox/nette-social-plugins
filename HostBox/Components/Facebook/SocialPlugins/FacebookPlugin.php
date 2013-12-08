@@ -38,21 +38,12 @@ abstract class FacebookPlugin extends SocialPluginComponent {
         $this->config = $config;
     }
 
-
     public function renderJsScript() {
         $this->template->config = $this->config;
         $this->template->registerHelper('booleanToInt', function ($value) {
             return $value ? '1' : '0';
         });
         parent::renderJsScript();
-    }
-
-
-    /**
-     * @return Config
-     */
-    public function getConfig() {
-        return $this->config;
     }
 
 } 

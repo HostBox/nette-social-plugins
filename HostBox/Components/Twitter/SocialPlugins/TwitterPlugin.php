@@ -39,7 +39,7 @@ abstract class TwitterPlugin extends SocialPluginComponent {
         $reflection = $this->getReflection();
         $href = $reflection->getAnnotation('href');
         if ($href === NULL) {
-            throw new \Exception();
+            throw new \Exception('Annotation @href is not set');
         }
 
         if ($mResult = preg_match_all('/\$[a-zA-Z]+/', $href, $matches) > 0) {
@@ -52,7 +52,7 @@ abstract class TwitterPlugin extends SocialPluginComponent {
         }
 
         if (preg_match_all('/\$[a-zA-Z]+/', $href, $matches) > 0)
-            throw new \Exception();
+            throw new \Exception('Annotation @href is not set correctly');
 
         $this->template->href = $href;
     }
