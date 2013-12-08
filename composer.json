@@ -1,0 +1,13 @@
+{
+    "name": "hostbox/nette-component-social-plugins",
+    "description": "Social plugins component for Nette Framework",
+    "authors": [
+        {
+            "name": "Pavel Macháň",
+            "email": "machan@hostbox.cz"
+        }
+    ],
+    "require": {
+        "nette/nette": "v2.1.0-RC1"
+    }
+}
