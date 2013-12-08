@@ -3,7 +3,7 @@
 namespace HostBox\Components\Google\SocialPlugins;
 
 /**
- * Class PageBadge
+ * Class CommunityBadge
  * @package HostBox\Components\Google\SocialPlugins
  *
  * @tagClass g-community

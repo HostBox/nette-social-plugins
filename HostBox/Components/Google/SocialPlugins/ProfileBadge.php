@@ -3,7 +3,7 @@
 namespace HostBox\Components\Google\SocialPlugins;
 
 /**
- * Class ShareButton
+ * Class ProfileBadge
  * @package HostBox\Components\Google\SocialPlugins
  *
  * @tagClass g-person
