@@ -26,6 +26,14 @@ abstract class GooglePlugin extends SocialPluginComponent {
         ALIGN_RIGHT = 'right',
         ALIGN_LEFT = 'left';
 
+    const
+        LAYOUT_LANDSCAPE = 'landscape',
+        LAYOUT_PORTRAIT = 'portrait';
+
+    const
+        THEME_LIGHT = 'light',
+        THEME_DARK = 'dark';
+
 
     /**
      * @param Config $config
