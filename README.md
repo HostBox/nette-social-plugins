@@ -52,7 +52,7 @@ or manual edit composer.json in your project
 ```json
     "require": {
         "hostbox/nette-component-social-plugins": "v1.1.0"
-    },
+    }
 ```
 
 Component Installation
@@ -72,10 +72,11 @@ Component Installation
         - HostBox\Components\Google\SocialPlugins\GoogleFactory
 
 
-**presenter**
+**Presenter**
 
 ```php
 use HostBox\Components\Facebook\SocialPlugins\FacebookFactory;
+use HostBox\Components\Facebook\SocialPlugins\LikeBox;
 use HostBox\Components\Google\SocialPlugins\GoogleFactory;
 use HostBox\Components\Google\SocialPlugins\PlusOneButton;
 use HostBox\Components\Twitter\SocialPlugins\FollowButton;
@@ -133,7 +134,7 @@ class HomepagePresenter extends BasePresenter {
 }
 ```
 
-**template**
+**Template**
 
 
     {control facebookLikeButton}

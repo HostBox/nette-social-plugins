@@ -8,15 +8,15 @@ use HostBox\Components\ComponentFactory;
  * Class FacebookFactory
  * @package HostBox\Components\Facebook\SocialPlugins
  *
- * @method createActivityFeed(array $settings = array())
- * @method createComments(array $settings = array())
- * @method createEmbeddedPost(array $settings = array())
- * @method createFacepile(array $settings = array())
- * @method createFollowButton(array $settings = array())
- * @method createLikeBox(array $settings = array())
- * @method createLikeButton(array $settings = array())
- * @method createSendButton(array $settings = array())
- * @method createShareButton(array $settings = array())
+ * @method ActivityFeed createActivityFeed(array $settings = array())
+ * @method Comments createComments(array $settings = array())
+ * @method EmbeddedPost createEmbeddedPost(array $settings = array())
+ * @method Facepile createFacepile(array $settings = array())
+ * @method FollowButton createFollowButton(array $settings = array())
+ * @method LikeBox createLikeBox(array $settings = array())
+ * @method LikeButton createLikeButton(array $settings = array())
+ * @method SendButton createSendButton(array $settings = array())
+ * @method ShareButton createShareButton(array $settings = array())
  */
 class FacebookFactory extends ComponentFactory {
 

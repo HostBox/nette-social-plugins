@@ -8,13 +8,13 @@ use HostBox\Components\ComponentFactory;
  * Class TwitterFactory
  * @package HostBox\Components\Twitter\SocialPlugins
  *
- * @method createEmbeddedFavorites(array $settings = array())
- * @method createEmbeddedSearch(array $settings = array())
- * @method createEmbeddedTimeline(array $settings = array())
- * @method createFollowButton(array $settings = array())
- * @method createHashtagButton(array $settings = array())
- * @method createMentionButton(array $settings = array())
- * @method createShareButton(array $settings = array())
+ * @method EmbeddedFavorites createEmbeddedFavorites(array $settings = array())
+ * @method EmbeddedSearch createEmbeddedSearch(array $settings = array())
+ * @method EmbeddedTimeline createEmbeddedTimeline(array $settings = array())
+ * @method FollowButton createFollowButton(array $settings = array())
+ * @method HashtagButton createHashtagButton(array $settings = array())
+ * @method MentionButton createMentionButton(array $settings = array())
+ * @method ShareButton createShareButton(array $settings = array())
  */
 class TwitterFactory extends ComponentFactory {
 

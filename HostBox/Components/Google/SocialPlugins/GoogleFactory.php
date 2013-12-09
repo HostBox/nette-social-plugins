@@ -8,11 +8,11 @@ use HostBox\Components\ComponentFactory;
  * Class GoogleFactory
  * @package HostBox\Components\Google\SocialPlugins
  *
- * @method createCommunityBadge(array $settings = array())
- * @method createPageBadge(array $settings = array())
- * @method createPlusOneButton(array $settings = array())
- * @method createProfileBadge(array $settings = array())
- * @method createShareButton(array $settings = array())
+ * @method CommunityBadge createCommunityBadge(array $settings = array())
+ * @method PageBadge createPageBadge(array $settings = array())
+ * @method PlusOneButton createPlusOneButton(array $settings = array())
+ * @method ProfileBadge createProfileBadge(array $settings = array())
+ * @method ShareButton createShareButton(array $settings = array())
  */
 class GoogleFactory extends ComponentFactory {
 
