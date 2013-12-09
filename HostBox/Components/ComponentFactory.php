@@ -5,7 +5,7 @@ namespace HostBox\Components;
 use Nette;
 
 /**
- * Class SocialPluginComponent
+ * Class ComponentFactory
  * @package HostBox\Components
  */
 abstract class ComponentFactory extends Nette\Object {
