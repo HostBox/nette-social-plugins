@@ -1,6 +1,7 @@
 {
     "name": "hostbox/nette-component-social-plugins",
     "description": "Social plugins component for Nette Framework",
+    "license": "MIT",
     "authors": [
         {
             "name": "Pavel Macháň",
