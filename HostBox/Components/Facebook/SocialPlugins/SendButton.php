@@ -24,4 +24,5 @@ class SendButton extends FacebookPlugin {
 
     /** @var string */
     public $ref;
+
 }

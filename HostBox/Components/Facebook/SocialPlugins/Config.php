@@ -1,4 +1,5 @@
 <?php
+
 namespace HostBox\Components\Facebook\SocialPlugins;
 
 use Nette;
@@ -89,4 +90,5 @@ class Config extends Nette\Object {
     public function getXfbml() {
         return $this->xfbml;
     }
+
 }

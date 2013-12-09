@@ -46,4 +46,5 @@ abstract class FacebookPlugin extends SocialPluginComponent {
         parent::renderJsScript();
     }
 
-} 
+}
+

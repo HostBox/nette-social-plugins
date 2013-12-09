@@ -12,4 +12,5 @@ class EmbeddedPost extends FacebookPlugin {
 
     /** @var string */
     public $href;
+
 }

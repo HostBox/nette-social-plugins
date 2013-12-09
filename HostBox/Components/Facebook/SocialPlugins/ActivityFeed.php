@@ -57,4 +57,5 @@ class ActivityFeed extends FacebookPlugin {
 
     /** @var int */
     public $width = 300;
+
 }

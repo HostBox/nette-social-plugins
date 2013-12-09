@@ -38,4 +38,5 @@ class Facepile extends FacebookPlugin {
 
     /** @var string */
     public $width;
+
 }

@@ -3,7 +3,6 @@
 namespace HostBox\Components\Google\SocialPlugins;
 
 use HostBox\Components\SocialPluginComponent;
-use Nette\Application as Nette;
 
 /**
  * Class BasePlugin
@@ -42,4 +41,4 @@ abstract class GooglePlugin extends SocialPluginComponent {
         $this->config = $config;
     }
 
-} 
+}

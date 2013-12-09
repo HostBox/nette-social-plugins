@@ -24,4 +24,5 @@ class ShareButton extends FacebookPlugin {
 
     /** @var string */
     public $width;
+
 }

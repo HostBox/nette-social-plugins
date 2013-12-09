@@ -30,4 +30,5 @@ class Comments extends FacebookPlugin {
 
     /** @var string */
     public $width = 550;
+
 }

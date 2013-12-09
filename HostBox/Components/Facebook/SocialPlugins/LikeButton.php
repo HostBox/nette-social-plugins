@@ -39,4 +39,5 @@ class LikeButton extends FacebookPlugin {
 
     /** @var string */
     public $width;
+
 }
