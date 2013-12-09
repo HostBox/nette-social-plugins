@@ -9,7 +9,7 @@ use Nette\Application as Nette;
  * Class SocialPluginComponent
  * @package HostBox\Components
  */
-class SocialPluginComponent extends Nette\UI\Control {
+class SocialPluginComponent extends Nette\UI\Control implements ISocialPluginComponent {
 
     /** @var mixed */
     protected $config;
