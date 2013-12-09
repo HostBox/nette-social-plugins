@@ -105,14 +105,16 @@ class SocialPluginComponent extends Nette\UI\Control {
         if (!is_array($settings) || empty($settings))
             return;
 
-        $properties = $this->getReflection()->getProperties();
+        $properties = $this->getReflection()->getProperties(\ReflectionProperty::IS_PUBLIC);
         if (count($properties) > 0) {
             foreach ($properties as $property) {
-                if ($property->isPublic()) {
-                    $propertyName = $property->name;
-                    if (array_key_exists($propertyName, $settings)) {
-                        $this->$propertyName = $settings[$property->name];
-                    }
+                if ($property->getDeclaringClass() == 'Nette\Application\UI\Control') {
+                    break;
+                }
+
+                $propertyName = $property->name;
+                if (array_key_exists($propertyName, $settings)) {
+                    $this->$propertyName = $settings[$property->name];
                 }
             }
         }
