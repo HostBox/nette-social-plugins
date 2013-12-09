@@ -2,6 +2,7 @@
 
 namespace HostBox\Components;
 
+use Exception;
 use Nette\Application as Nette;
 
 /**
@@ -40,7 +41,7 @@ class SocialPluginComponent extends Nette\UI\Control {
     protected function renderComponent($functionName = 'render') {
         if (substr($functionName, 0, 6) != "render") {
             if (trim($functionName) == '') {
-                throw new \Exception("Unknown render function");
+                throw new Exception("Unknown render function");
             }
         }
 
@@ -78,7 +79,9 @@ class SocialPluginComponent extends Nette\UI\Control {
                     if (is_bool($value) === TRUE) {
                         $value = ($value ? 'true' : 'false');
                     }
-                    $result[] = 'data-' . $name . '="' . $value . '"';
+
+                    $prefix = ($property->getAnnotation('noPrefix') === NULL ? 'data-' : '');
+                    $result[] = sprintf('%s%s="%s"', $prefix, $name, $value);
                 }
             }
             $this->template->pluginSettings = implode(' ', $result);
@@ -87,9 +90,10 @@ class SocialPluginComponent extends Nette\UI\Control {
     }
 
     protected function putDistinctionIntoTemplate() {
-        $tagClass = $this->getReflection()->getAnnotation('tagClass');
+        $reflection = $this->getReflection();
+        $tagClass = $reflection->getAnnotation('tagClass');
         if ($tagClass === NULL) {
-            throw new \Exception();
+            throw new Exception(sprintf('Class %s has not "tagClass" annotation', $reflection->getShortName()));
         }
         $this->template->tagClass = $tagClass;
     }
@@ -114,4 +118,4 @@ class SocialPluginComponent extends Nette\UI\Control {
         }
     }
 
-} 
+}
