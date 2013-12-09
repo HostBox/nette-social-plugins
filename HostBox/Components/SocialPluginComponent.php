@@ -3,7 +3,6 @@
 namespace HostBox\Components;
 
 use Nette\Application as Nette;
-use Nette\Reflection\ClassType;
 
 /**
  * Class SocialPluginComponent
@@ -45,15 +44,13 @@ class SocialPluginComponent extends Nette\UI\Control {
             }
         }
 
-        if ($functionName !== "render") {
+        if ($functionName != "render") {
             $functionName = lcfirst(substr($functionName, 6, strlen($functionName)));
         } else {
             $functionName = 'default';
         }
 
-        /** @var ClassType $calledClass */
-        $calledClass = get_called_class();
-        $reflection = $calledClass::getReflection();
+        $reflection = $this->getReflection();
         $fileName = $reflection->getFileName();
         $componentFolder = substr($fileName, 0, strrpos($fileName, $reflection->getShortName()) - 1) . '/templates';
 
@@ -63,24 +60,25 @@ class SocialPluginComponent extends Nette\UI\Control {
 
     protected function putSettingsIntoTemplate() {
         $reflection = $this->getReflection();
-        $properties = $reflection->getProperties();
+        $properties = $reflection->getProperties(\ReflectionProperty::IS_PUBLIC);
         if (count($properties) > 0) {
             $result = array();
             foreach ($properties as $property) {
-                if ($property->isPublic()) {
-                    $propertyName = $property->name;
-                    if (($value = $this->$propertyName) !== NULL && $property->getAnnotation('ignore') === NULL) {
-                        if (($name = $property->getAnnotation('name')) === NULL) {
-                            $name = preg_replace('#(.)(?=[A-Z])#', '$1-', $property->name);
-                            $name = strtolower($name);
-                            $name = rawurlencode($name);
-                        }
-
-                        if (is_bool($value) === TRUE) {
-                            $value = ($value ? 'true' : 'false');
-                        }
-                        $result[] = 'data-' . $name . '="' . $value . '"';
+                if ($property->getDeclaringClass() == 'Nette\Application\UI\Control') {
+                    break;
+                }
+                $propertyName = $property->name;
+                if (($value = $this->$propertyName) !== NULL && $property->getAnnotation('ignore') === NULL) {
+                    if (($name = $property->getAnnotation('name')) === NULL) {
+                        $name = preg_replace('#(.)(?=[A-Z])#', '$1-', $property->name);
+                        $name = strtolower($name);
+                        $name = rawurlencode($name);
                     }
+
+                    if (is_bool($value) === TRUE) {
+                        $value = ($value ? 'true' : 'false');
+                    }
+                    $result[] = 'data-' . $name . '="' . $value . '"';
                 }
             }
             $this->template->pluginSettings = implode(' ', $result);
