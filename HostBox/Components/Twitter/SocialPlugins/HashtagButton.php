@@ -8,6 +8,7 @@ namespace HostBox\Components\Twitter\SocialPlugins;
  *
  * @tagClass twitter-hashtag-button
  * @href intent/tweet?button_hashtag=$hashtags
+ * @text Tweet #$hashtags
  */
 class HashtagButton extends TwitterPlugin {
 

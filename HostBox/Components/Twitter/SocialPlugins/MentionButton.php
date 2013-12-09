@@ -8,6 +8,7 @@ namespace HostBox\Components\Twitter\SocialPlugins;
  *
  * @tagClass twitter-mention-button
  * @href intent/tweet?screen_name=$recipient
+ * @text Tweet to &#64;$recipient
  */
 class MentionButton extends TwitterPlugin {
 
@@ -15,7 +16,7 @@ class MentionButton extends TwitterPlugin {
      * @var string
      * @ignore
      */
-    public $recipient = 'hello';
+    public $recipient;
 
     /** @var string */
     public $related;

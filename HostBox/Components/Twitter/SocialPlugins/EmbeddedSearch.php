@@ -1,0 +1,21 @@
+<?php
+
+namespace HostBox\Components\Twitter\SocialPlugins;
+
+/**
+ * Class EmbeddedSearch
+ * @package HostBox\Components\Twitter\SocialPlugins
+ *
+ * @tagClass twitter-timeline
+ * @href search?q=%23$query
+ * @text Tweets about "#$query"
+ */
+class EmbeddedSearch extends Embedded {
+
+    /**
+     * @var string
+     * @ignore
+     */
+    public $query;
+
+}

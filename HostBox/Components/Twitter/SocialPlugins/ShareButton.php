@@ -8,6 +8,7 @@ namespace HostBox\Components\Twitter\SocialPlugins;
  *
  * @tagClass twitter-share-button
  * @href share
+ * @text Tweet
  */
 class ShareButton extends TwitterPlugin {
 
@@ -34,4 +35,5 @@ class ShareButton extends TwitterPlugin {
 
     /** @var boolean */
     public $dnt;
+
 }

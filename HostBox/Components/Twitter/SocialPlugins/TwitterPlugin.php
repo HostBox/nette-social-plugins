@@ -2,6 +2,7 @@
 
 namespace HostBox\Components\Twitter\SocialPlugins;
 
+use Exception;
 use HostBox\Components\SocialPluginComponent;
 
 /**
@@ -27,10 +28,14 @@ abstract class TwitterPlugin extends SocialPluginComponent {
     }
 
     /**
-     * @param array $settings
+     * @inheritdoc
      */
     public function render($settings = array()) {
         $this->template->config = $this->config;
+        $text = $this->fillVariablesInAnnotation('text');
+        if ($text !== NULL) {
+            $this->template->text = $text;
+        }
         parent::render($settings);
     }
 
@@ -39,22 +44,37 @@ abstract class TwitterPlugin extends SocialPluginComponent {
         $reflection = $this->getReflection();
         $href = $reflection->getAnnotation('href');
         if ($href === NULL) {
-            throw new \Exception('Annotation @href is not set');
+            throw new Exception(sprintf('Class %s has not "href" annotation', $reflection->getShortName()));
+        }
+        $this->template->href = $this->fillVariablesInAnnotation('href');
+    }
+
+    /**
+     * @param $name
+     * @return string|null
+     * @throws \Exception
+     */
+    protected function fillVariablesInAnnotation($name) {
+        $reflection = $this->getReflection();
+        $annotation = $reflection->getAnnotation($name);
+        if ($annotation === NULL) {
+            return NULL;
         }
 
-        if ($mResult = preg_match_all('/\$[a-zA-Z]+/', $href, $matches) > 0) {
+        if ($mResult = preg_match_all('/\$[a-zA-Z]+/', $annotation, $matches) > 0) {
             foreach ($matches[0] as $match) {
                 $rMatch = substr($match, 1, strlen($match) - 1);
                 if ($reflection->hasProperty($rMatch) === TRUE && $reflection->getProperty($rMatch)->isPublic()) {
-                    $href = str_replace($match, $this->$rMatch, $href);
+                    $annotation = str_replace($match, $this->$rMatch, $annotation);
                 }
             }
         }
 
-        if (preg_match_all('/\$[a-zA-Z]+/', $href, $matches) > 0)
-            throw new \Exception('Annotation @href is not set correctly');
+        if (preg_match_all('/\$[a-zA-Z]+/', $annotation, $matches) > 0)
+            throw new Exception(sprintf('Annotation @%s contains unfilled variables', $name));
 
-        $this->template->href = $href;
+        return $annotation;
+
     }
 
-} 
+}
