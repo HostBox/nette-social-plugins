@@ -60,21 +60,21 @@ Component Installation
 
 **config.neon**
 
-```json
-services:
-    # Configs
-    - HostBox\Components\Facebook\SocialPlugins\Config('facebookAppId')
-    - HostBox\Components\Twitter\SocialPlugins\Config
-    - HostBox\Components\Google\SocialPlugins\Config
-    # Factories
-    - HostBox\Components\Facebook\SocialPlugins\FacebookFactory
-    - HostBox\Components\Twitter\SocialPlugins\TwitterFactory
-    - HostBox\Components\Google\SocialPlugins\GoogleFactory
-```
+
+    services:
+        # Configs
+        - HostBox\Components\Facebook\SocialPlugins\Config('facebookAppId')
+        - HostBox\Components\Twitter\SocialPlugins\Config
+        - HostBox\Components\Google\SocialPlugins\Config
+        # Factories
+        - HostBox\Components\Facebook\SocialPlugins\FacebookFactory
+        - HostBox\Components\Twitter\SocialPlugins\TwitterFactory
+        - HostBox\Components\Google\SocialPlugins\GoogleFactory
+
 
 **presenter**
 
-```html
+```php
 use HostBox\Components\Facebook\SocialPlugins\FacebookFactory;
 use HostBox\Components\Google\SocialPlugins\GoogleFactory;
 use HostBox\Components\Google\SocialPlugins\PlusOneButton;
@@ -135,7 +135,7 @@ class HomepagePresenter extends BasePresenter {
 
 **template**
 
-```html
+
     {control facebookLikeButton}
     {control facebookLikeBox}
     {control twitterShareButton}
@@ -144,4 +144,3 @@ class HomepagePresenter extends BasePresenter {
     {control twitterShareButton:jsScript}
     {control facebookLikeButton:jsScript}
     {control googlePlusOneButton:jsScript}
-```
