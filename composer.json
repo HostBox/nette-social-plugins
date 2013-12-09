@@ -9,5 +9,10 @@
     ],
     "require": {
         "nette/nette": "v2.1.0-RC1"
+    },
+    "autoload": {
+        "psr-0": {
+            "HostBox\\Components\\": ""
+        }
     }
 }
