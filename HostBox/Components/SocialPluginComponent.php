@@ -28,7 +28,7 @@ class SocialPluginComponent extends Nette\UI\Control {
         $this->template->registerHelper('booleanToInt', function ($value) {
             return $value ? '1' : '0';
         });
-        $this->renderComponent();
+        $this->renderComponent(__FUNCTION__);
     }
 
     /**
@@ -38,16 +38,14 @@ class SocialPluginComponent extends Nette\UI\Control {
         $this->updateSettings($settings);
     }
 
-    protected function renderComponent() {
-        list(, $caller) = debug_backtrace(2);
-        $functionName = $caller['function'];
+    protected function renderComponent($functionName = 'render') {
         if (substr($functionName, 0, 6) != "render") {
             if (trim($functionName) == '') {
                 throw new \Exception("Unknown render function");
             }
         }
 
-        if ($caller['function'] !== "render") {
+        if ($functionName !== "render") {
             $functionName = lcfirst(substr($functionName, 6, strlen($functionName)));
         } else {
             $functionName = 'default';
