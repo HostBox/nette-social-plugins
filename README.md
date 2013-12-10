@@ -35,6 +35,14 @@ Support
 - Page badge
 - Community badge
 
+**Pinterest:**
+
+- Pin It button
+- Follow button
+- Pin widget
+- Profile widget
+- Board widget
+
 Package Installation
 -------------------
 
@@ -68,15 +76,17 @@ Component Installation
         - HostBox\Components\Facebook\SocialPlugins\FacebookFactory
         - HostBox\Components\Twitter\SocialPlugins\TwitterFactory
         - HostBox\Components\Google\SocialPlugins\GoogleFactory
+        - HostBox\Components\Pinterest\SocialPlugins\PinterestFactory
 
 
 **Presenter**
 
 ```php
-use HostBox\Components\Facebook\SocialPlugins\FacebookFactory;
 use HostBox\Components\Facebook\SocialPlugins\LikeBox;
 use HostBox\Components\Google\SocialPlugins\GoogleFactory;
 use HostBox\Components\Google\SocialPlugins\PlusOneButton;
+use HostBox\Components\Pinterest\SocialPlugins\PinItButton;
+use HostBox\Components\Pinterest\SocialPlugins\PinterestFactory;
 use HostBox\Components\Twitter\SocialPlugins\FollowButton;
 use HostBox\Components\Twitter\SocialPlugins\TwitterFactory;
 
@@ -91,11 +101,15 @@ class HomepagePresenter extends BasePresenter {
     /** @var GoogleFactory */
     protected $googleFactory;
 
+    /** @var PinterestFactory */
+    protected $pinterestFactory;
 
-    public function __construct(FacebookFactory $facebookFactory, TwitterFactory $twitterFactory, GoogleFactory $googleFactory) {
+
+    public function __construct(FacebookFactory $facebookFactory, TwitterFactory $twitterFactory, GoogleFactory $googleFactory, PinterestFactory $pinterestFactory) {
         $this->facebookFactory = $facebookFactory;
         $this->twitterFactory = $twitterFactory;
         $this->googleFactory = $googleFactory;
+        $this->pinterestFactory = $pinterestFactory;
     }
 
     // component create by Factory
@@ -129,6 +143,13 @@ class HomepagePresenter extends BasePresenter {
 
         return $component;
     }
+
+    public function createComponentPinterestFollowButton() {
+        return $this->pinterestFactory->createFollowButton(array(
+            'userName' => 'pinterest',
+            'text' => 'Pinterest'
+        ));
+    }
 }
 ```
 
@@ -139,7 +160,9 @@ class HomepagePresenter extends BasePresenter {
     {control facebookLikeBox}
     {control twitterShareButton}
     {control googlePlusOneButton}
+    {control pinterestFollowButton}
 
     {control facebookLikeButton:jsScript}
     {control twitterShareButton:jsScript}
     {control googlePlusOneButton:jsScript}
+    {control pinterestFollowButton:jsScript}
