@@ -2,7 +2,7 @@ Social Plugins for Nette Framework
 ===================
 
 
-Support
+Support for Facebook, Twitter, Google+ and Pinterest
 -------------------
 
 **Facebook:**
