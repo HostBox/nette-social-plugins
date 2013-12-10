@@ -64,6 +64,9 @@ class PinItButton extends PinterestPlugin {
      */
     public $description;
 
+    /**
+     * @inheritdoc
+     */
     public function render($settings = array()) {
         $this->template->theme = $this->theme;
         $this->template->size = $this->size;

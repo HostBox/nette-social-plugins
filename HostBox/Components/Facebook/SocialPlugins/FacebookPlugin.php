@@ -47,4 +47,3 @@ abstract class FacebookPlugin extends SocialPluginComponent {
     }
 
 }
-
