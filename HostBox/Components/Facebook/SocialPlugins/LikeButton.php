@@ -26,7 +26,7 @@ class LikeButton extends FacebookPlugin {
     public $kidDirectedSite;
 
     /** @var string */
-    public $layout = self::LAYOUT_STANDART;
+    public $layout = self::LAYOUT_STANDARD;
 
     /** @var string */
     public $ref;

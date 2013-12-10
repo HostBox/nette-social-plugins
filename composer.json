@@ -8,8 +8,9 @@
             "email": "machan@hostbox.cz"
         }
     ],
+    "minimum-stability": "RC",
     "require": {
-        "nette/nette": "v2.1.0-RC1"
+        "nette/nette": "~2.0"
     },
     "autoload": {
         "psr-0": {

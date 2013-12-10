@@ -35,7 +35,6 @@ Support
 - Page badge
 - Community badge
 
-
 Package Installation
 -------------------
 
@@ -50,16 +49,15 @@ $ composer require hostbox/nette-component-social-plugins
 or manual edit composer.json in your project
 
 ```json
-    "require": {
-        "hostbox/nette-component-social-plugins": "v1.1.0"
-    }
+"require": {
+    "hostbox/nette-component-social-plugins": "dev-master"
+}
 ```
 
 Component Installation
 -------------------
 
 **config.neon**
-
 
     services:
         # Configs

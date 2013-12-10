@@ -23,7 +23,7 @@ class FollowButton extends FacebookPlugin {
     public $kidDirectedSite = FALSE;
 
     /** @var string */
-    public $layout = self::LAYOUT_STANDART;
+    public $layout = self::LAYOUT_STANDARD;
 
     /** @var boolean */
     public $showFaces = FALSE;
