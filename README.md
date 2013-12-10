@@ -140,6 +140,6 @@ class HomepagePresenter extends BasePresenter {
     {control twitterShareButton}
     {control googlePlusOneButton}
 
-    {control twitterShareButton:jsScript}
     {control facebookLikeButton:jsScript}
+    {control twitterShareButton:jsScript}
     {control googlePlusOneButton:jsScript}

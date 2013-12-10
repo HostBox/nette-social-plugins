@@ -4,12 +4,13 @@ namespace HostBox\Components;
 
 use Exception;
 use Nette\Application as Nette;
+use Nette\Reflection\ClassType;
 
 /**
  * Class SocialPluginComponent
  * @package HostBox\Components
  */
-class SocialPluginComponent extends Nette\UI\Control implements ISocialPluginComponent {
+abstract class SocialPluginComponent extends Nette\UI\Control implements ISocialPluginComponent {
 
     /** @var mixed */
     protected $config;
@@ -38,6 +39,10 @@ class SocialPluginComponent extends Nette\UI\Control implements ISocialPluginCom
         $this->updateSettings($settings);
     }
 
+    /**
+     * @param string $functionName
+     * @throws \Exception
+     */
     protected function renderComponent($functionName = 'render') {
         if (substr($functionName, 0, 6) != "render") {
             if (trim($functionName) == '') {
@@ -64,12 +69,21 @@ class SocialPluginComponent extends Nette\UI\Control implements ISocialPluginCom
         $properties = $reflection->getProperties(\ReflectionProperty::IS_PUBLIC);
         if (count($properties) > 0) {
             $result = array();
+
+            $prefix = 'data-';
+            foreach ($this->getPluginFamilyLine() as $childReflection) {
+                if ($childReflection->hasAnnotation('prefix')) {
+                    $prefix = $childReflection->getAnnotation('prefix');
+                }
+            }
+
             foreach ($properties as $property) {
                 if ($property->getDeclaringClass() == 'Nette\Application\UI\Control') {
                     break;
                 }
+
                 $propertyName = $property->name;
-                if (($value = $this->$propertyName) !== NULL && $property->getAnnotation('ignore') === NULL) {
+                if (($value = $this->$propertyName) !== NULL && !$property->hasAnnotation('ignore')) {
                     if (($name = $property->getAnnotation('name')) === NULL) {
                         $name = preg_replace('#(.)(?=[A-Z])#', '$1-', $property->name);
                         $name = strtolower($name);
@@ -80,7 +94,7 @@ class SocialPluginComponent extends Nette\UI\Control implements ISocialPluginCom
                         $value = ($value ? 'true' : 'false');
                     }
 
-                    $prefix = ($property->getAnnotation('noPrefix') === NULL ? 'data-' : '');
+                    $prefix = (!$property->hasAnnotation('noPrefix') ? $prefix : '');
                     $result[] = sprintf('%s%s="%s"', $prefix, $name, $value);
                 }
             }
@@ -118,6 +132,23 @@ class SocialPluginComponent extends Nette\UI\Control implements ISocialPluginCom
                 }
             }
         }
+    }
+
+    /**
+     * @return ClassType[]
+     */
+    private function getPluginFamilyLine() {
+        /** @var ClassType $class */
+        $class = get_called_class();
+        $members = array($member = $class::getReflection());
+        while ($member = $member->getParentClass()) {
+            if ($member->name === 'HostBox\Components\SocialPluginComponent')
+                break;
+
+            $members[] = $member;
+        }
+
+        return array_reverse($members);
     }
 
 }
