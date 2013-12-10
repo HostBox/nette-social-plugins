@@ -135,6 +135,33 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
     }
 
     /**
+     * @param $name
+     * @return string|null
+     * @throws \Exception
+     */
+    protected function fillVariablesInAnnotation($name) {
+        $reflection = $this->getReflection();
+        $annotation = $reflection->getAnnotation($name);
+        if ($annotation === NULL) {
+            return NULL;
+        }
+
+        if ($mResult = preg_match_all('/\$[a-zA-Z]+/', $annotation, $matches) > 0) {
+            foreach ($matches[0] as $match) {
+                $rMatch = substr($match, 1, strlen($match) - 1);
+                if ($reflection->hasProperty($rMatch) === TRUE && $reflection->getProperty($rMatch)->isPublic()) {
+                    $annotation = str_replace($match, $this->$rMatch, $annotation);
+                }
+            }
+        }
+
+        if (preg_match_all('/\$[a-zA-Z]+/', $annotation, $matches) > 0)
+            throw new Exception(sprintf('Annotation @%s contains unfilled variables', $name));
+
+        return $annotation;
+    }
+
+    /**
      * @return ClassType[]
      */
     private function getPluginFamilyLine() {

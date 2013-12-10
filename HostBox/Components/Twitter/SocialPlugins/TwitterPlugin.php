@@ -74,7 +74,6 @@ abstract class TwitterPlugin extends SocialPluginComponent {
             throw new Exception(sprintf('Annotation @%s contains unfilled variables', $name));
 
         return $annotation;
-
     }
 
 }
