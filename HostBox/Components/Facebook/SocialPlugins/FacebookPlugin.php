@@ -20,7 +20,7 @@ abstract class FacebookPlugin extends SocialPluginComponent {
         COLOR_SCHEME_DARK = 'dark';
 
     const
-        LAYOUT_STANDART = 'standart',
+        LAYOUT_STANDARD = 'standard',
         LAYOUT_BOX_COUNT = 'box_count',
         LAYOUT_BUTTON_COUNT = 'button_count',
         LAYOUT_BUTTON = 'button';
