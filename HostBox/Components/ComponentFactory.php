@@ -33,7 +33,8 @@ abstract class ComponentFactory extends Nette\Object {
 
             $componentName = $namespace . '\\' . $name;
 
-            if ($reflection->getName() == 'HostBox\Components\Pinterest\SocialPlugins\PinterestFactory') {
+            if ($reflection->getName() == 'HostBox\Components\Pinterest\SocialPlugins\PinterestFactory' ||
+                $reflection->getName() == 'HostBox\Components\LinkedIn\SocialPlugins\LinkedInFactory') {
                 $component = new $componentName;
             } else {
                 if ($this->config === NULL) {

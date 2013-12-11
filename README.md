@@ -2,7 +2,7 @@ Social Plugins for Nette Framework
 ===================
 
 
-Support for Facebook, Twitter, Google+ and Pinterest
+Support for Facebook, Twitter, Google+, LinkedIn and Pinterest
 -------------------
 
 **Facebook:**
@@ -34,6 +34,14 @@ Support for Facebook, Twitter, Google+ and Pinterest
 - Profile badge
 - Page badge
 - Community badge
+
+**LinkedIn:**
+
+- Company insider
+- Company profile
+- Member profile
+- Share button
+- Recommend button
 
 **Pinterest:**
 
@@ -106,6 +114,11 @@ class HomepagePresenter extends BasePresenter {
     /** @var PinterestFactory */
     protected $pinterestFactory;
 
+    /**
+     * @var LinkedInFactory
+     * @inject - only for Nette 2.1(dev, RC1)
+     */
+    public $linkedInFactory;
 
     public function __construct(FacebookFactory $facebookFactory, TwitterFactory $twitterFactory, GoogleFactory $googleFactory, PinterestFactory $pinterestFactory) {
         $this->facebookFactory = $facebookFactory;
@@ -146,6 +159,10 @@ class HomepagePresenter extends BasePresenter {
         return $component;
     }
 
+    public function createComponentLinkedInShareButton() {
+        return $this->linkedInFactory->createShareButton();
+    }
+
     public function createComponentPinterestFollowButton() {
         return $this->pinterestFactory->createFollowButton(array(
             'userName' => 'pinterest',
@@ -166,9 +183,11 @@ class HomepagePresenter extends BasePresenter {
     {control facebookLikeBox}
     {control twitterShareButton}
     {control googlePlusOneButton}
+    {control linkedInShareButton}
     {control pinterestFollowButton}
 
     {control facebookLikeButton:jsScript}
     {control twitterShareButton:jsScript}
     {control googlePlusOneButton:jsScript}
-    {control pinterestFollowButton:jsScript}
+    {control linkedInShareButton:jsScript}
+    {control pinterestFollowButton}
