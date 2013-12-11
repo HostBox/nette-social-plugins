@@ -2,7 +2,7 @@ Social Plugins for Nette Framework
 ===================
 
 
-Support for Facebook, Twitter, G+ and Pinterest
+Support for Facebook, Twitter, Google+ and Pinterest
 -------------------
 
 **Facebook:**
@@ -53,6 +53,7 @@ $ composer require hostbox/nette-component-social-plugins
 ```
 
 [Packagist - Versions](https://packagist.org/packages/hostbox/nette-component-social-plugins)
+
 [Nette Forum (cs) - plugin section](http://forum.nette.org/cs/16220-social-plugins-facebook-twitter-a-g)
 
 or manual edit composer.json in your project
