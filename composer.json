@@ -1,7 +1,7 @@
 {
     "name": "hostbox/nette-component-social-plugins",
     "description": "Social plugins component for Nette Framework",
-    "keywords": ["nette", "component", "social", "plugin", "facebook", "twitter", "google+", "linkedIn", "pinterest"],
+    "keywords": ["nette", "component", "social", "plugin", "facebook", "twitter", "google", "linkedIn", "pinterest"],
     "license": "MIT",
     "authors": [
         {
