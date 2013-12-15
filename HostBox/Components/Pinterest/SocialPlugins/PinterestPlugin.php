@@ -12,17 +12,6 @@ use HostBox\Components\SocialPluginComponent;
  */
 abstract class PinterestPlugin extends SocialPluginComponent {
 
-    /**
-     * @inheritdoc
-     */
-    public function render($settings = array()) {
-        $text = $this->fillVariablesInAnnotation('text');
-        if ($text !== NULL) {
-            $this->template->text = $text;
-        }
-        parent::render($settings);
-    }
-
     protected function putDistinctionIntoTemplate() {
         parent::putDistinctionIntoTemplate();
         $reflection = $this->getReflection();
@@ -31,6 +20,11 @@ abstract class PinterestPlugin extends SocialPluginComponent {
             throw new \Exception(sprintf('Class %s has not "href" annotation', $reflection->getShortName()));
         }
         $this->template->href = $this->fillVariablesInAnnotation('href');
+
+        $text = $this->fillVariablesInAnnotation('text');
+        if ($text !== NULL) {
+            $this->template->text = $text;
+        }
     }
 
 }
