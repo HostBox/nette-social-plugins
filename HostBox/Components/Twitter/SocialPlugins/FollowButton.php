@@ -6,7 +6,7 @@ namespace HostBox\Components\Twitter\SocialPlugins;
  * Class ShareButton
  * @package HostBox\Components\Twitter\SocialPlugins
  *
- * @tagClass twitter-follow-button
+ * @identifier twitter-follow-button
  * @href $via
  * @text Follow @$via
  */

@@ -6,7 +6,7 @@ namespace HostBox\Components\Pinterest\SocialPlugins;
  * Class FollowButton
  * @package HostBox\Components\Pinterest\SocialPlugins
  *
- * @tagClass buttonFollow
+ * @identifier buttonFollow
  * @href $userName/
  * @text $text
  */

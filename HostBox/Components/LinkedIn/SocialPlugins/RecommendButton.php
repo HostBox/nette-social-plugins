@@ -6,7 +6,7 @@ namespace HostBox\Components\LinkedIn\SocialPlugins;
  * Class RecommendButton
  * @package HostBox\Components\LinkedIn\SocialPlugins
  *
- * @tagClass IN/RecommendProduct
+ * @identifier IN/RecommendProduct
  */
 class RecommendButton extends Button {
 

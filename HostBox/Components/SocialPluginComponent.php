@@ -105,11 +105,11 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
 
     protected function putDistinctionIntoTemplate() {
         $reflection = $this->getReflection();
-        $tagClass = $reflection->getAnnotation('tagClass');
-        if ($tagClass === NULL) {
-            throw new Exception(sprintf('Class %s has not "tagClass" annotation', $reflection->getShortName()));
+        $identifier = $reflection->getAnnotation('identifier');
+        if ($identifier === NULL) {
+            throw new Exception(sprintf('Class %s has not "identifier" annotation', $reflection->getShortName()));
         }
-        $this->template->tagClass = $tagClass;
+        $this->template->identifier = $identifier;
     }
 
     /**

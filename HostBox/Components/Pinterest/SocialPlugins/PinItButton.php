@@ -6,7 +6,7 @@ namespace HostBox\Components\Pinterest\SocialPlugins;
  * Class PinItButton
  * @package HostBox\Components\Pinterest\SocialPlugins
  *
- * @tagClass buttonPin
+ * @identifier buttonPin
  * @href pin/create/button/?url=$websiteUrl&media=$imageUrl&description=$description
  */
 class PinItButton extends PinterestPlugin {

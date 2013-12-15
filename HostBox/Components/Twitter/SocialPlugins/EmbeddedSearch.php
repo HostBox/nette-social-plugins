@@ -6,7 +6,7 @@ namespace HostBox\Components\Twitter\SocialPlugins;
  * Class EmbeddedSearch
  * @package HostBox\Components\Twitter\SocialPlugins
  *
- * @tagClass twitter-timeline
+ * @identifier twitter-timeline
  * @href search?q=%23$query
  * @text Tweets about "#$query"
  */

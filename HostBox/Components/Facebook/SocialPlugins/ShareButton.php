@@ -6,7 +6,7 @@ namespace HostBox\Components\Facebook\SocialPlugins;
  * Class ShareButton
  * @package HostBox\Components\Facebook\SocialPlugins
  *
- * @tagClass fb-share-button
+ * @identifier fb-share-button
  */
 class ShareButton extends FacebookPlugin {
 

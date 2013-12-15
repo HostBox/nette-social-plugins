@@ -6,7 +6,7 @@ namespace HostBox\Components\Google\SocialPlugins;
  * Class CommunityBadge
  * @package HostBox\Components\Google\SocialPlugins
  *
- * @tagClass g-community
+ * @identifier g-community
  */
 class CommunityBadge extends Badge {
 }

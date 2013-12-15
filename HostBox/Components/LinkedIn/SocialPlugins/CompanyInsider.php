@@ -8,7 +8,7 @@ use HostBox\Components\SocialPluginComponent;
  * Class CompanyInsider
  * @package HostBox\Components\LinkedIn\SocialPlugins
  *
- * @tagClass IN/CompanyInsider
+ * @identifier IN/CompanyInsider
  */
 class CompanyInsider extends SocialPluginComponent {
 

@@ -6,7 +6,7 @@ namespace HostBox\Components\Facebook\SocialPlugins;
  * Class Facepile
  * @package HostBox\Components\Facebook\SocialPlugins
  *
- * @tagClass fb-facepile
+ * @identifier fb-facepile
  */
 class Facepile extends FacebookPlugin {
 

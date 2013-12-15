@@ -6,7 +6,7 @@ namespace HostBox\Components\Twitter\SocialPlugins;
  * Class HashtagButton
  * @package HostBox\Components\Twitter\SocialPlugins
  *
- * @tagClass twitter-mention-button
+ * @identifier twitter-mention-button
  * @href intent/tweet?screen_name=$recipient
  * @text Tweet to &#64;$recipient
  */

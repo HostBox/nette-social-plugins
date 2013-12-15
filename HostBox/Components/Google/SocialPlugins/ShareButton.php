@@ -6,7 +6,7 @@ namespace HostBox\Components\Google\SocialPlugins;
  * Class ShareButton
  * @package HostBox\Components\Google\SocialPlugins
  *
- * @tagClass g-plus
+ * @identifier g-plus
  */
 class ShareButton extends GooglePlugin {
 

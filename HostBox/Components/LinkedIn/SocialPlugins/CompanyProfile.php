@@ -6,7 +6,7 @@ namespace HostBox\Components\LinkedIn\SocialPlugins;
  * Class CompanyProfile
  * @package HostBox\Components\LinkedIn\SocialPlugins
  *
- * @tagClass IN/CompanyProfile
+ * @identifier IN/CompanyProfile
  */
 class CompanyProfile extends Profile {
 
