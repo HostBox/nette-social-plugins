@@ -65,8 +65,7 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
     }
 
     protected function putSettingsIntoTemplate() {
-        $reflection = $this->getReflection();
-        $properties = $reflection->getProperties(\ReflectionProperty::IS_PUBLIC);
+        $properties = $this->getReflection()->getProperties(\ReflectionProperty::IS_PUBLIC);
         if (count($properties) > 0) {
             $result = array();
 
@@ -82,8 +81,7 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
                     break;
                 }
 
-                $propertyName = $property->name;
-                if (($value = $this->$propertyName) !== NULL && !$property->hasAnnotation('ignore')) {
+                if (($value = $this->{$property->name}) !== NULL && !$property->hasAnnotation('ignore')) {
                     if (($name = $property->getAnnotation('name')) === NULL) {
                         $name = preg_replace('#(.)(?=[A-Z])#', '$1-', $property->name);
                         $name = strtolower($name);

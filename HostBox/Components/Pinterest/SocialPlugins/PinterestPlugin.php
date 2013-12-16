@@ -15,8 +15,7 @@ abstract class PinterestPlugin extends SocialPluginComponent {
     protected function putDistinctionIntoTemplate() {
         parent::putDistinctionIntoTemplate();
         $reflection = $this->getReflection();
-        $href = $reflection->getAnnotation('href');
-        if ($href === NULL) {
+        if (!$reflection->hasAnnotation('href')) {
             throw new \Exception(sprintf('Class %s has not "href" annotation', $reflection->getShortName()));
         }
         $this->template->href = $this->fillVariablesInAnnotation('href');
