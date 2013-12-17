@@ -10,12 +10,15 @@
         }
     ],
     "minimum-stability": "RC",
+    "autoload": {
+        "psr-0": {
+            "HostBox\\Components\\": "src/"
+        }
+    },
     "require": {
         "nette/nette": "~2.0"
     },
-    "autoload": {
-        "psr-0": {
-            "HostBox\\Components\\": ""
-        }
+    "require-dev": {
+        "nette/tester": "@dev"
     }
 }
