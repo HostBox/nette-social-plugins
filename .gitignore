@@ -3,3 +3,4 @@
 *.lock
 *.log
 vendor
+tests/HostBox/output
