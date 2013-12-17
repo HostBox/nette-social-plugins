@@ -2,7 +2,7 @@
 
 use HostBox\Components\LinkedIn\SocialPlugins;
 
-require_once __DIR__ . '\bootstrap.php';
+require_once __DIR__ . '/bootstrap.php';
 
 
 $factory = new SocialPlugins\LinkedInFactory();
