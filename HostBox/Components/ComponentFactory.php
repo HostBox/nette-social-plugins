@@ -3,6 +3,7 @@
 namespace HostBox\Components;
 
 use Nette;
+use Nette\Reflection\ClassType;
 
 /**
  * Class ComponentFactory
@@ -26,15 +27,12 @@ abstract class ComponentFactory extends Nette\Object {
         if (substr($name, 0, 6) == 'create' && strlen($name) > 6) {
             $name = substr($name, -(strlen($name) - 6));
 
-            /** @var Nette\Reflection\ClassType $calledClass */
-            $calledClass = get_called_class();
-            $reflection = $calledClass::getReflection();
-            $namespace = $reflection->getNamespaceName();
-
-            $componentName = $namespace . '\\' . $name;
+            $reflection = new ClassType(get_called_class());
+            $componentName = $reflection->getNamespaceName() . '\\' . $name;
 
             if ($reflection->getName() == 'HostBox\Components\Pinterest\SocialPlugins\PinterestFactory' ||
-                $reflection->getName() == 'HostBox\Components\LinkedIn\SocialPlugins\LinkedInFactory') {
+                $reflection->getName() == 'HostBox\Components\LinkedIn\SocialPlugins\LinkedInFactory'
+            ) {
                 $component = new $componentName;
             } else {
                 if ($this->config === NULL) {

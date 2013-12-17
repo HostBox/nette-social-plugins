@@ -163,9 +163,7 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
      * @return ClassType[]
      */
     private function getPluginFamilyLine() {
-        /** @var ClassType $class */
-        $class = get_called_class();
-        $members = array($member = $class::getReflection());
+        $members = array($member = new ClassType(get_called_class()));
         while ($member = $member->getParentClass()) {
             if ($member->name === 'HostBox\Components\SocialPluginComponent')
                 break;
