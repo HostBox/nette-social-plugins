@@ -4,8 +4,8 @@ php:
     - 5.4
     - 5.5
 
-script: VERBOSE=true ./tests/run-tests.sh -s tests/
-
 before_script:
-    # Install Nette Tester
-    - composer install --no-interaction --dev
+    - composer self-update
+    - composer install --no-interaction --prefer-source --dev
+
+script: VERBOSE=true ./tests/run-tests.sh -s tests/HostBox/
