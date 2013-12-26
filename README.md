@@ -1,4 +1,4 @@
-Social Plugins for Nette Framework [![Build Status](https://travis-ci.org/HostBox/nette-socialPlugins.png)](https://travis-ci.org/HostBox/nette-socialPlugins)
+Social Plugins for Nette Framework [![Build Status](https://travis-ci.org/HostBox/nette-social-plugins.png)](https://travis-ci.org/HostBox/nette-socialPlugins)
 ===================
 
 
