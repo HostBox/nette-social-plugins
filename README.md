@@ -116,7 +116,7 @@ class HomepagePresenter extends BasePresenter {
 
     /**
      * @var LinkedInFactory
-     * @inject - only for Nette 2.1(dev, RC1)
+     * @inject
      */
     public $linkedInFactory;
 
