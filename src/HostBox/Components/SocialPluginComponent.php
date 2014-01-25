@@ -19,8 +19,7 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
      * @param array|null $settings
      */
     public function render($settings = array()) {
-        $this->updateSettings($settings);
-        $this->putSettingsIntoTemplate();
+        $this->putSettingsIntoTemplate($settings);
         $this->renderComponent();
     }
 
@@ -36,7 +35,22 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
      * @param array $settings
      */
     public function assign(array $settings) {
-        $this->updateSettings($settings);
+        if (!is_array($settings) || empty($settings))
+            return;
+
+        $properties = $this->getReflection()->getProperties(\ReflectionProperty::IS_PUBLIC);
+        if (count($properties) > 0) {
+            foreach ($properties as $property) {
+                if ($property->getDeclaringClass() == 'Nette\Application\UI\Control') {
+                    break;
+                }
+
+                $propertyName = $property->name;
+                if (array_key_exists($propertyName, $settings)) {
+                    $this->$propertyName = $settings[$property->name];
+                }
+            }
+        }
     }
 
     /**
@@ -64,7 +78,7 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
         $this->template->render();
     }
 
-    protected function putSettingsIntoTemplate() {
+    protected function putSettingsIntoTemplate($tempSettings = array()) {
         $properties = $this->getReflection()->getProperties(\ReflectionProperty::IS_PUBLIC);
         if (count($properties) > 0) {
             $result = array();
@@ -88,6 +102,10 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
                         $name = rawurlencode($name);
                     }
 
+                    if (is_array($tempSettings) && !empty($tempSettings) && array_key_exists($property->name, $tempSettings)) {
+                        $value = $tempSettings[$property->name];
+                    }
+
                     if (is_bool($value) === TRUE) {
                         $value = ($value ? 'true' : 'false');
                     }
@@ -108,28 +126,6 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
             throw new Exception(sprintf('Class %s has not "identifier" annotation', $reflection->getShortName()));
         }
         $this->template->identifier = $identifier;
-    }
-
-    /**
-     * @param array $settings
-     */
-    private function updateSettings(array $settings) {
-        if (!is_array($settings) || empty($settings))
-            return;
-
-        $properties = $this->getReflection()->getProperties(\ReflectionProperty::IS_PUBLIC);
-        if (count($properties) > 0) {
-            foreach ($properties as $property) {
-                if ($property->getDeclaringClass() == 'Nette\Application\UI\Control') {
-                    break;
-                }
-
-                $propertyName = $property->name;
-                if (array_key_exists($propertyName, $settings)) {
-                    $this->$propertyName = $settings[$property->name];
-                }
-            }
-        }
     }
 
     /**
