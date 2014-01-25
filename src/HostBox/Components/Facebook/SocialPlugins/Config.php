@@ -4,6 +4,7 @@ namespace HostBox\Components\Facebook\SocialPlugins;
 
 use Nette;
 
+
 /**
  * Class Config
  * @package HostBox\Components\Facebook\SocialPlugins
@@ -37,6 +38,7 @@ class Config extends Nette\Object {
 
     /**
      * @param string $appId
+     * @return void
      */
     public function setAppId($appId) {
         $this->appId = $appId;
@@ -51,6 +53,7 @@ class Config extends Nette\Object {
 
     /**
      * @param string $locale
+     * @return void
      */
     public function setLocale($locale) {
         $this->locale = $locale;

@@ -2,10 +2,8 @@
 
 namespace HostBox\Components\Facebook\SocialPlugins;
 
+
 /**
- * Class Comments
- * @package HostBox\Components\Facebook\SocialPlugins
- *
  * @identifier fb-comments
  */
 class Comments extends FacebookPlugin {

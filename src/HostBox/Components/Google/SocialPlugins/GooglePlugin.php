@@ -4,10 +4,7 @@ namespace HostBox\Components\Google\SocialPlugins;
 
 use HostBox\Components\SocialPluginComponent;
 
-/**
- * Class GooglePlugin
- * @package HostBox\Components\Google\SocialPlugins
- */
+
 abstract class GooglePlugin extends SocialPluginComponent {
 
     const

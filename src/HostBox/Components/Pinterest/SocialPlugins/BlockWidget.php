@@ -2,10 +2,7 @@
 
 namespace HostBox\Components\Pinterest\SocialPlugins;
 
-/**
- * Class BlockWidget
- * @package HostBox\Components\Pinterest\SocialPlugins
- */
+
 abstract class BlockWidget extends PinterestPlugin {
 
     const

@@ -5,13 +5,13 @@ namespace HostBox\Components\Pinterest\SocialPlugins;
 use HostBox\Components\SocialPluginComponent;
 
 /**
- * Class PinterestPlugin
- * @package HostBox\Components\Pinterest\SocialPlugins
- *
  * @prefix data-pin-
  */
 abstract class PinterestPlugin extends SocialPluginComponent {
 
+    /**
+     * @inheritdoc
+     */
     protected function putDistinctionIntoTemplate() {
         parent::putDistinctionIntoTemplate();
         $reflection = $this->getReflection();

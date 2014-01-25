@@ -6,23 +6,23 @@ use Exception;
 use Nette\Application as Nette;
 use Nette\Reflection\ClassType;
 
-/**
- * Class SocialPluginComponent
- * @package HostBox\Components
- */
+
 abstract class SocialPluginComponent extends Nette\UI\Control implements ISocialPluginComponent {
 
     /** @var mixed */
     protected $config;
 
     /**
-     * @param array|null $settings
+     * @inheritdoc
      */
     public function render($settings = array()) {
         $this->putSettingsIntoTemplate($settings);
         $this->renderComponent();
     }
 
+    /**
+     * @inheritdoc
+     */
     public function renderJsScript() {
         $this->template->config = $this->config;
         $this->template->registerHelper('booleanToInt', function ($value) {
@@ -32,7 +32,7 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
     }
 
     /**
-     * @param array $settings
+     * @inheritdoc
      */
     public function assign(array $settings) {
         if (!is_array($settings) || empty($settings))
@@ -55,6 +55,7 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
 
     /**
      * @param string $functionName
+     * @return void
      * @throws \Exception
      */
     protected function renderComponent($functionName = 'render') {
@@ -78,6 +79,10 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
         $this->template->render();
     }
 
+    /**
+     * @param array $tempSettings
+     * @return void
+     */
     protected function putSettingsIntoTemplate($tempSettings = array()) {
         $properties = $this->getReflection()->getProperties(\ReflectionProperty::IS_PUBLIC);
         if (count($properties) > 0) {
@@ -119,6 +124,10 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
         $this->putDistinctionIntoTemplate();
     }
 
+    /**
+     * @throws \Exception
+     * @return void
+     */
     protected function putDistinctionIntoTemplate() {
         $reflection = $this->getReflection();
         $identifier = $reflection->getAnnotation('identifier');

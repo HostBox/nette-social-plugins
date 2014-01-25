@@ -2,10 +2,8 @@
 
 namespace HostBox\Components\Twitter\SocialPlugins;
 
+
 /**
- * Class EmbeddedTimeline
- * @package HostBox\Components\Twitter\SocialPlugins
- *
  * @tagClass twitter-timeline
  * @href $via
  * @text Tweets by @$via

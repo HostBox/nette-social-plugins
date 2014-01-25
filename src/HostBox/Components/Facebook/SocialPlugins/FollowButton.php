@@ -2,10 +2,8 @@
 
 namespace HostBox\Components\Facebook\SocialPlugins;
 
+
 /**
- * Class FollowButton
- * @package HostBox\Components\Facebook\SocialPlugins
- *
  * @identifier fb-follow
  */
 class FollowButton extends FacebookPlugin {

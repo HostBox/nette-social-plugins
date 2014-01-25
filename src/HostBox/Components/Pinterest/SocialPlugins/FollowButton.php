@@ -2,10 +2,8 @@
 
 namespace HostBox\Components\Pinterest\SocialPlugins;
 
+
 /**
- * Class FollowButton
- * @package HostBox\Components\Pinterest\SocialPlugins
- *
  * @identifier buttonFollow
  * @href $userName/
  * @text $text

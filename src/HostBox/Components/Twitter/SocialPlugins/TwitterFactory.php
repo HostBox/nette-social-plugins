@@ -4,10 +4,8 @@ namespace HostBox\Components\Twitter\SocialPlugins;
 
 use HostBox\Components\ComponentFactory;
 
+
 /**
- * Class TwitterFactory
- * @package HostBox\Components\Twitter\SocialPlugins
- *
  * @method EmbeddedFavorites createEmbeddedFavorites(array $settings = array())
  * @method EmbeddedSearch createEmbeddedSearch(array $settings = array())
  * @method EmbeddedTimeline createEmbeddedTimeline(array $settings = array())

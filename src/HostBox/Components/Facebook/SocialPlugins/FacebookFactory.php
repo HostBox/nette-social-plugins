@@ -4,10 +4,8 @@ namespace HostBox\Components\Facebook\SocialPlugins;
 
 use HostBox\Components\ComponentFactory;
 
+
 /**
- * Class FacebookFactory
- * @package HostBox\Components\Facebook\SocialPlugins
- *
  * @method ActivityFeed createActivityFeed(array $settings = array())
  * @method Comments createComments(array $settings = array())
  * @method EmbeddedPost createEmbeddedPost(array $settings = array())

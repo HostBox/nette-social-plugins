@@ -2,10 +2,8 @@
 
 namespace HostBox\Components\Facebook\SocialPlugins;
 
+
 /**
- * Class LikeBox
- * @package HostBox\Components\Facebook\SocialPlugins
- *
  * @identifier fb-like-box
  */
 class LikeBox extends FacebookPlugin {

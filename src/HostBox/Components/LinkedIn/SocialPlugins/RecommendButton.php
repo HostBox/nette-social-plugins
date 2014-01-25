@@ -2,10 +2,8 @@
 
 namespace HostBox\Components\LinkedIn\SocialPlugins;
 
+
 /**
- * Class RecommendButton
- * @package HostBox\Components\LinkedIn\SocialPlugins
- *
  * @identifier IN/RecommendProduct
  */
 class RecommendButton extends Button {
@@ -22,4 +20,5 @@ class RecommendButton extends Button {
      * @name product
      */
     public $productId;
+
 }

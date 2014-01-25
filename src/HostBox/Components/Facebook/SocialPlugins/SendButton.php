@@ -2,10 +2,8 @@
 
 namespace HostBox\Components\Facebook\SocialPlugins;
 
+
 /**
- * Class SendButton
- * @package HostBox\Components\Facebook\SocialPlugins
- *
  * @identifier fb-send
  */
 class SendButton extends FacebookPlugin {

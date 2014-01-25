@@ -2,10 +2,8 @@
 
 namespace HostBox\Components\Facebook\SocialPlugins;
 
+
 /**
- * Class ActivityFeed
- * @package HostBox\Components\Facebook\SocialPlugins
- *
  * @identifier fb-activity
  */
 class ActivityFeed extends FacebookPlugin {

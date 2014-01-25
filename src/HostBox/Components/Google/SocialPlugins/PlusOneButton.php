@@ -2,10 +2,8 @@
 
 namespace HostBox\Components\Google\SocialPlugins;
 
+
 /**
- * Class PlusOneButton
- * @package HostBox\Components\Google\SocialPlugins
- *
  * @identifier g-plusone
  */
 class PlusOneButton extends GooglePlugin {

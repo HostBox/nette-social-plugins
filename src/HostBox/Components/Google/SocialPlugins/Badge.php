@@ -2,10 +2,7 @@
 
 namespace HostBox\Components\Google\SocialPlugins;
 
-/**
- * Class ShareButton
- * @package HostBox\Components\Google\SocialPlugins
- */
+
 class Badge extends GooglePlugin {
 
     /** @var string */

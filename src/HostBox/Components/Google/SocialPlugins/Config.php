@@ -4,10 +4,7 @@ namespace HostBox\Components\Google\SocialPlugins;
 
 use Nette;
 
-/**
- * Class Config
- * @package HostBox\Components\Google\SocialPlugins
- */
+
 class Config extends Nette\Object {
 
     const
@@ -32,6 +29,7 @@ class Config extends Nette\Object {
 
     /**
      * @param string $locale
+     * @return void
      */
     public function setLocale($locale) {
         $this->locale = $locale;
@@ -46,6 +44,7 @@ class Config extends Nette\Object {
 
     /**
      * @param string $parsetags
+     * @return void
      */
     public function setParsetags($parsetags) {
         $this->parsetags = $parsetags;

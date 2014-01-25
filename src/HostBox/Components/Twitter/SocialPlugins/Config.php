@@ -3,10 +3,7 @@ namespace HostBox\Components\Twitter\SocialPlugins;
 
 use Nette;
 
-/**
- * Class Config
- * @package HostBox\Components\Twitter\SocialPlugins
- */
+
 class Config extends Nette\Object {
 
     /**
@@ -24,6 +21,7 @@ class Config extends Nette\Object {
 
     /**
      * @param string $lang
+     * @return void
      */
     public function setLang($lang) {
         $this->lang = $lang;

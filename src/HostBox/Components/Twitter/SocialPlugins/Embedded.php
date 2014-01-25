@@ -2,10 +2,7 @@
 
 namespace HostBox\Components\Twitter\SocialPlugins;
 
-/**
- * Class Embedded
- * @package HostBox\Components\Twitter\SocialPlugins
- */
+
 abstract class Embedded extends TwitterPlugin {
 
     const

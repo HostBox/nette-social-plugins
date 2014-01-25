@@ -4,10 +4,8 @@ namespace HostBox\Components\Google\SocialPlugins;
 
 use HostBox\Components\ComponentFactory;
 
+
 /**
- * Class GoogleFactory
- * @package HostBox\Components\Google\SocialPlugins
- *
  * @method CommunityBadge createCommunityBadge(array $settings = array())
  * @method PageBadge createPageBadge(array $settings = array())
  * @method PlusOneButton createPlusOneButton(array $settings = array())

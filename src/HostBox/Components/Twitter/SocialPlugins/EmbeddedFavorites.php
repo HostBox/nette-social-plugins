@@ -2,10 +2,8 @@
 
 namespace HostBox\Components\Twitter\SocialPlugins;
 
+
 /**
- * Class EmbeddedFavorites
- * @package HostBox\Components\Twitter\SocialPlugins
- *
  * @identifier twitter-timeline
  * @href $via/favorites
  * @text Favorite Tweets by @$via

@@ -5,10 +5,7 @@ namespace HostBox\Components\Facebook\SocialPlugins;
 use HostBox\Components\SocialPluginComponent;
 use Nette\Application as Nette;
 
-/**
- * Class BasePlugin
- * @package HostBox\Components\Facebook\SocialPlugins
- */
+
 abstract class FacebookPlugin extends SocialPluginComponent {
 
     const
@@ -38,6 +35,9 @@ abstract class FacebookPlugin extends SocialPluginComponent {
         $this->config = $config;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function renderJsScript() {
         $this->template->config = $this->config;
         $this->template->registerHelper('booleanToInt', function ($value) {

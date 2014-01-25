@@ -2,10 +2,8 @@
 
 namespace HostBox\Components\Twitter\SocialPlugins;
 
+
 /**
- * Class HashtagButton
- * @package HostBox\Components\Twitter\SocialPlugins
- *
  * @identifier twitter-hashtag-button
  * @href intent/tweet?button_hashtag=$hashtags
  * @text Tweet #$hashtags

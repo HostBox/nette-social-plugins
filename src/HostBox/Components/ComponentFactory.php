@@ -5,10 +5,7 @@ namespace HostBox\Components;
 use Nette;
 use Nette\Reflection\ClassType;
 
-/**
- * Class ComponentFactory
- * @package HostBox\Components
- */
+
 abstract class ComponentFactory extends Nette\Object {
 
     /** @var mixed */

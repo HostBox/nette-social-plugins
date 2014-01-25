@@ -4,10 +4,7 @@ namespace HostBox\Components\LinkedIn\SocialPlugins;
 
 use HostBox\Components\SocialPluginComponent;
 
-/**
- * Class Button
- * @package HostBox\Components\LinkedIn\SocialPlugins
- */
+
 abstract class Button extends SocialPluginComponent {
 
     const

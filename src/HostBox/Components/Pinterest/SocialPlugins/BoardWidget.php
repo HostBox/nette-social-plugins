@@ -2,10 +2,8 @@
 
 namespace HostBox\Components\Pinterest\SocialPlugins;
 
+
 /**
- * Class BoardWidget
- * @package HostBox\Components\Pinterest\SocialPlugins
- *
  * @identifier embedBoard
  * @href $userName/$boardName/
  * @text Pinterest Board

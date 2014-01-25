@@ -5,10 +5,7 @@ namespace HostBox\Components\Twitter\SocialPlugins;
 use Exception;
 use HostBox\Components\SocialPluginComponent;
 
-/**
- * Class TwitterPlugin
- * @package HostBox\Components\Twitter\SocialPlugins
- */
+
 abstract class TwitterPlugin extends SocialPluginComponent {
 
     const
@@ -27,6 +24,9 @@ abstract class TwitterPlugin extends SocialPluginComponent {
         $this->config = $config;
     }
 
+    /**
+     * @inheritdoc
+     */
     protected function putDistinctionIntoTemplate() {
         parent::putDistinctionIntoTemplate();
         $reflection = $this->getReflection();

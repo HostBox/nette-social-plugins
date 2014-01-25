@@ -4,10 +4,8 @@ namespace HostBox\Components\Pinterest\SocialPlugins;
 
 use HostBox\Components\ComponentFactory;
 
+
 /**
- * Class PinterestFactory
- * @package HostBox\Components\Pinterest\SocialPlugins
- *
  * @ignoreConfig
  *
  * @method FollowButton createFollowButton(array $settings = array())
