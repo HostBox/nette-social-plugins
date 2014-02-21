@@ -17,6 +17,7 @@ abstract class TwitterPlugin extends SocialPluginComponent {
         COUNT_HORIZONTAL = 'horizontal',
         COUNT_VERTICAL = 'vertical';
 
+
     /**
      * @param Config $config
      */

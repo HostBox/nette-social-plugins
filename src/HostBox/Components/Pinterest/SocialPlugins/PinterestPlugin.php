@@ -4,6 +4,7 @@ namespace HostBox\Components\Pinterest\SocialPlugins;
 
 use HostBox\Components\SocialPluginComponent;
 
+
 /**
  * @prefix data-pin-
  */

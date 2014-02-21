@@ -14,6 +14,7 @@ abstract class ComponentFactory extends Nette\Object {
     /** @var array */
     protected $plugins;
 
+
     /**
      * @param string $name
      * @param array $args

@@ -62,6 +62,7 @@ class PinItButton extends PinterestPlugin {
      */
     public $description;
 
+
     /**
      * @inheritdoc
      */

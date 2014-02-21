@@ -1,4 +1,5 @@
 <?php
+
 namespace HostBox\Components\Twitter\SocialPlugins;
 
 use Nette;
@@ -11,6 +12,7 @@ class Config extends Nette\Object {
      * @var string
      */
     private $lang;
+
 
     /**
      * @param $lang

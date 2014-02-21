@@ -23,6 +23,7 @@ class Config extends Nette\Object {
     /** @var string */
     private $locale;
 
+
     /**
      * @param string $appId
      * @param bool $status
