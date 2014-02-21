@@ -12,6 +12,7 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
     /** @var mixed */
     protected $config;
 
+
     /**
      * @inheritdoc
      */
@@ -65,15 +66,11 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
             }
         }
 
-        if ($functionName != "render") {
-            $functionName = lcfirst(substr($functionName, 6, strlen($functionName)));
-        } else {
-            $functionName = 'default';
-        }
-
         $reflection = $this->getReflection();
         $fileName = $reflection->getFileName();
         $componentFolder = substr($fileName, 0, strrpos($fileName, $reflection->getShortName()) - 1) . '/templates';
+
+        $functionName = $functionName != "render" ? lcfirst(substr($functionName, 6, strlen($functionName))) : 'default';
 
         $this->template->setFile(sprintf('%s/%s.latte', $componentFolder, $functionName));
         $this->template->render();
