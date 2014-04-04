@@ -82,6 +82,7 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
      */
     protected function putSettingsIntoTemplate($tempSettings = array()) {
         $properties = $this->getReflection()->getProperties(\ReflectionProperty::IS_PUBLIC);
+
         if (count($properties) > 0) {
             $result = array();
 
@@ -97,13 +98,14 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
                     break;
                 }
 
-                if (($value = $this->{$property->name}) !== NULL && !$property->hasAnnotation('ignore')) {
+                if (!$property->hasAnnotation('ignore')) {
                     if (($name = $property->getAnnotation('name')) === NULL) {
                         $name = preg_replace('#(.)(?=[A-Z])#', '$1-', $property->name);
                         $name = strtolower($name);
                         $name = rawurlencode($name);
                     }
 
+                    $value = $this->{$property->name};
                     if (is_array($tempSettings) && !empty($tempSettings) && array_key_exists($property->name, $tempSettings)) {
                         $value = $tempSettings[$property->name];
                     }
@@ -112,8 +114,10 @@ abstract class SocialPluginComponent extends Nette\UI\Control implements ISocial
                         $value = ($value ? 'true' : 'false');
                     }
 
-                    $prefix = (!$property->hasAnnotation('noPrefix') ? $prefix : '');
-                    $result[] = sprintf('%s%s="%s"', $prefix, $name, $value);
+                    if ($value !== NULL) {
+                        $prefix = (!$property->hasAnnotation('noPrefix') ? $prefix : '');
+                        $result[] = sprintf('%s%s="%s"', $prefix, $name, $value);
+                    }
                 }
             }
             $this->template->pluginSettings = implode(' ', $result);
