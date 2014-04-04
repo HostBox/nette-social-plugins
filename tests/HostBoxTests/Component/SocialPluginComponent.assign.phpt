@@ -1,8 +1,12 @@
 <?php
 
-use HostBox\Components\LinkedIn\SocialPlugins;
+namespace HostBoxTests\Component;
 
-require_once __DIR__ . '/bootstrap.php';
+use HostBox\Components\LinkedIn\SocialPlugins;
+use Tester;
+
+require_once __DIR__ . '/../bootstrap.php';
+
 
 class PluginSettingsTest extends Tester\TestCase {
 
@@ -12,13 +16,13 @@ class PluginSettingsTest extends Tester\TestCase {
     /** @var array */
     private $settings;
 
+
     public function setUp() {
         $this->factory = new SocialPlugins\LinkedInFactory;
         $this->settings = array(
             'counter' => SocialPlugins\ShareButton::COUNTER_TOP,
             'showZero' => FALSE
         );
-
     }
 
     public function testUpdateSettingsByFactoryAssign() {
