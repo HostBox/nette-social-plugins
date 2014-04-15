@@ -64,6 +64,8 @@ $ composer require hostbox/nette-component-social-plugins
 
 [Nette Forum (cs) - plugin section](http://forum.nette.org/cs/16220-social-plugins-facebook-twitter-a-g)
 
+[Nette Addons](http://addons.nette.org/hostbox/nette-component-social-plugins)
+
 or manual edit composer.json in your project
 
 ```json
