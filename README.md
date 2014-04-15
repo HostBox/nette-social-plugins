@@ -68,7 +68,7 @@ or manual edit composer.json in your project
 
 ```json
 "require": {
-    "hostbox/nette-component-social-plugins": "dev-master"
+    "hostbox/nette-component-social-plugins": "v1.5.0"
 }
 ```
 
@@ -177,7 +177,7 @@ class HomepagePresenter extends BasePresenter {
 
     {control facebookLikeButton}
 
-    // settings editing in Template
+    // temporary(only for this render) settings editing in Template
     {control facebookLikeButton, layout => 'box_count', showFaces => true}
 
     {control facebookLikeBox}
@@ -190,4 +190,4 @@ class HomepagePresenter extends BasePresenter {
     {control twitterShareButton:jsScript}
     {control googlePlusOneButton:jsScript}
     {control linkedInShareButton:jsScript}
-    {control pinterestFollowButton}
+    {control pinterestFollowButton:jsScript}
