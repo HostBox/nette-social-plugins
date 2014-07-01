@@ -4,16 +4,21 @@ namespace HostBox\Components\Twitter\SocialPlugins;
 
 
 /**
- * @tagClass twitter-timeline
+ * @identifier twitter-timeline
  * @href $via
- * @text Tweets by @$via
+ * @text Tweets by &#064;$via
+ * @widget-id $widgetId
  */
 class EmbeddedTimeline extends Embedded {
 
     /**
      * @var string
-     * @ignore
      */
     public $via;
+	
+    /**
+     * @var string
+     */
+    public $widgetId;
 
 }
