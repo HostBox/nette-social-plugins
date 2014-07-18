@@ -4,7 +4,7 @@ namespace HostBox\Components\Twitter\SocialPlugins;
 
 
 /**
- * @tagClass twitter-timeline
+ * @identifier twitter-timeline
  * @href $via
  * @text Tweets by @$via
  */
